@@ -1,3 +1,4 @@
+
 #include "AFMotor.h"
 
 #define SENSOR_LEFT 0
@@ -22,16 +23,16 @@ void setup() {
   left_motor.setSpeed(SEARCH_SPEED);     // set the speed to 200/255
   left_motor.run(FORWARD);
 
-  left_spinner.setSpeed(200);
+  left_spinner.setSpeed(255);
   left_spinner.run(BACKWARD);
-  right_spinner.setSpeed(200);
+  right_spinner.setSpeed(255);
   right_spinner.run(FORWARD);
 
   
   randomSeed(analogRead(3));
 }
 
-void loop() 
+void loop()
 {
 
   int left = analogRead(SENSOR_LEFT);
@@ -50,7 +51,7 @@ void loop()
     left_motor.run(BACKWARD);
 
     delay(random(100, 900));
-  } 
+  }
   else if(left > SENSOR_THRESHOLD)
   {
     right_motor.setSpeed(50);
@@ -66,7 +67,7 @@ void loop()
   }
   //Serial.println(error);
   right_motor.setSpeed(SEARCH_SPEED);
-  left_motor.setSpeed(SEARCH_SPEED); 
+  left_motor.setSpeed(SEARCH_SPEED);
 
   right_motor.run(FORWARD);
   left_motor.run(FORWARD);
